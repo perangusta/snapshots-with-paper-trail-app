@@ -4,8 +4,8 @@
       <tr>
         <th>ID</th>
         <th>Event</th>
-        <th>Object Type</th>
-        <th>Object ID</th>
+        <th>Object type</th>
+        <th>Object</th>
         <th>Whodunnit</th>
         <th>Creation date</th>
       </tr>
@@ -16,7 +16,11 @@
           <td><%= version.id %></td>
           <td><%= version.event %></td>
           <td><%= version.item_type %></td>
-          <td><%= version.item_id %></td>
+          <td>
+            <%= link_to url_for(controller: version.item_type.downcase.pluralize, action: 'show', id: version.item_id) do %>
+              <%= version.item_name.presence || 'Unknown' %> (<%= version.item_id %>)
+            <% end %>
+          </td>
           <td><%= version.actor %></td>
           <td><%= l(version.created_at) %></td>
         </tr>
