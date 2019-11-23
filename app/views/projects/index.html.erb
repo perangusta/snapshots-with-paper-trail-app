@@ -35,3 +35,5 @@
 <br>
 
 <%= link_to 'New Project', new_project_path %>
+
+<%= render partial: 'shared/versioning', locals: { versions: @versions } %>

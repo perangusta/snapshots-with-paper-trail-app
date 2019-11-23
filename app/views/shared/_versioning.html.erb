@@ -1,0 +1,26 @@
+<div class="versioning">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Event</th>
+        <th>Object Type</th>
+        <th>Object ID</th>
+        <th>Whodunnit</th>
+        <th>Creation date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% versions.order(created_at: :desc).each do |version| %>
+        <tr>
+          <td><%= version.id %></td>
+          <td><%= version.event %></td>
+          <td><%= version.item_type %></td>
+          <td><%= version.item_id %></td>
+          <td><%= version.whodunnit %></td>
+          <td><%= l(version.created_at) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

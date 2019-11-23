@@ -7,6 +7,9 @@ class Project < ApplicationRecord
 
   enum state: STATES
 
+  # Versioning
+  has_paper_trail
+
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 3 }
   validates :baseline, presence: true, numericality: true
