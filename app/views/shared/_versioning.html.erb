@@ -11,13 +11,13 @@
       </tr>
     </thead>
     <tbody>
-      <% versions.order(created_at: :desc).each do |version| %>
+      <% versions.includes(:actor).order(created_at: :desc).each do |version| %>
         <tr>
           <td><%= version.id %></td>
           <td><%= version.event %></td>
           <td><%= version.item_type %></td>
           <td><%= version.item_id %></td>
-          <td><%= version.whodunnit %></td>
+          <td><%= version.actor %></td>
           <td><%= l(version.created_at) %></td>
         </tr>
       <% end %>
