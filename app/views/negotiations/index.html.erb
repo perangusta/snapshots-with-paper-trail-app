@@ -5,11 +5,13 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>State</th>
       <th>Name</th>
       <th>Baseline</th>
       <th>Savings</th>
       <th>Project</th>
+      <th>Last modification</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,11 +19,13 @@
   <tbody>
     <% @negotiations.each do |negotiation| %>
       <tr>
+        <td><%= negotiation.id %></td>
         <td><%= negotiation.state %></td>
         <td><%= negotiation.name %></td>
         <td><%= negotiation.baseline %></td>
         <td><%= negotiation.savings %></td>
-        <td><%= negotiation.project_id %></td>
+        <td><%= negotiation.project.to_s %></td>
+        <td><%= l(negotiation.updated_at) %></td>
         <td><%= link_to 'Show', negotiation %></td>
         <td><%= link_to 'Edit', edit_negotiation_path(negotiation) %></td>
         <td><%= link_to 'Destroy', negotiation, method: :delete, data: { confirm: 'Are you sure?' } %></td>

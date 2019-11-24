@@ -1,4 +1,6 @@
 <div class="versioning">
+  <h3>History</h3>
+
   <table>
     <thead>
       <tr>
@@ -6,12 +8,13 @@
         <th>Event</th>
         <th>Object type</th>
         <th>Object</th>
+        <th>Nb of changes</th>
         <th>Whodunnit</th>
         <th>Creation date</th>
       </tr>
     </thead>
     <tbody>
-      <% versions.includes(:actor).order(created_at: :desc).each do |version| %>
+      <% versions.includes(:item, :actor).order(created_at: :desc).each do |version| %>
         <tr>
           <td><%= version.id %></td>
           <td><%= version.event %></td>
@@ -20,6 +23,9 @@
             <%= link_to url_for(controller: version.item_type.downcase.pluralize, action: 'show', id: version.item_id) do %>
               <%= version.item_name.presence || 'Unknown' %> (<%= version.item_id %>)
             <% end %>
+          </td>
+          <td>
+            <%= version.changeset.size %> change(s)
           </td>
           <td>
             <%= version.actor || version.whodunnit.presence || 'Unknown' %><br />

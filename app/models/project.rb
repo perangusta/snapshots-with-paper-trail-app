@@ -14,6 +14,8 @@ class Project < ApplicationRecord
   validates :start_on, presence: true
   validates :end_on, presence: true
 
+  scope :ordered_by_updated_at, -> { order(updated_at: :desc) }
+
   def to_s
     name
   end
