@@ -12,6 +12,8 @@
       <th>Nb of objects</th>
       <th>Baseline</th>
       <th>Savings</th>
+      <th>EAC Baseline</th>
+      <th>EAC Savings</th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +23,8 @@
       <td><%= @projects_summary_completed.records_count %></td>
       <td><%= @projects_summary_completed.baseline_sum %></td>
       <td><%= @projects_summary_completed.savings_sum %></td>
+      <td rowspan="2"><%= @eac_summary_completed[:baseline] %></td>
+      <td rowspan="2"><%= @eac_summary_completed[:savings] %></td>
     </tr>
     <tr>
       <td>Negotiations</td>
@@ -35,6 +39,8 @@
       <td><%= @projects_summary_draft.records_count %></td>
       <td><%= @projects_summary_draft.baseline_sum %></td>
       <td><%= @projects_summary_draft.savings_sum %></td>
+      <td rowspan="2"><%= @eac_summary_draft[:baseline] %></td>
+      <td rowspan="2"><%= @eac_summary_draft[:savings] %></td>
     </tr>
     <tr>
       <td>Negotiations</td>

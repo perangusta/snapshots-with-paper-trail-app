@@ -22,6 +22,7 @@ class ProjectsTest < ApplicationSystemTestCase
     fill_in "Savings", with: @project.savings
     fill_in "Start on", with: @project.start_on
     select @project.state, from: "State"
+    select @project.status, from: "Status"
     click_on "Create Project"
 
     assert_text "Project was successfully created"
@@ -39,6 +40,7 @@ class ProjectsTest < ApplicationSystemTestCase
     fill_in "Savings", with: @project.savings
     fill_in "Start on", with: @project.start_on
     select @project.state, from: "State"
+    select @project.status, from: "Status"
     click_on "Update Project"
 
     assert_text "Project was successfully updated"

@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status, Project::STATUSES.keys %>
+  </div>
+
+  <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>

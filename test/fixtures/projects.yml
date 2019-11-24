@@ -2,6 +2,7 @@
 
 one:
   state: 1
+  status: 1
   name: MyString 1
   description: MyText 1
   baseline: 100
@@ -11,6 +12,7 @@ one:
 
 two:
   state: 1
+  status: 1
   name: MyString 2
   description: MyText 2
   baseline: 100
