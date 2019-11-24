@@ -5,7 +5,10 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all.with_negotiations_summary.ordered_by_updated_at
+    projects_collection     = apply_filters(Project.all)
+    negotiations_collection = apply_filters(Negotiation.all)
+
+    @projects = projects_collection.with_negotiations_summary(negotiations_collection: negotiations_collection).ordered_by_updated_at
 
     @versions = PaperTrail::Version.all.where(item_type: 'Project')
   end

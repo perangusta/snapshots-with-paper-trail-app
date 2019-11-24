@@ -2,6 +2,8 @@
 
 <h1>Negotiations</h1>
 
+<%= render partial: 'shared/filters' %>
+
 <table>
   <thead>
     <tr>
@@ -24,7 +26,7 @@
         <td><%= negotiation.name %></td>
         <td><%= negotiation.baseline %></td>
         <td><%= negotiation.savings %></td>
-        <td><%= negotiation.project.to_s %></td>
+        <td><%= @projects_names[negotiation.project_id] if negotiation.project_id.present? %></td>
         <td><%= l(negotiation.updated_at) %></td>
         <td><%= link_to 'Show', negotiation %></td>
         <td><%= link_to 'Edit', edit_negotiation_path(negotiation) %></td>

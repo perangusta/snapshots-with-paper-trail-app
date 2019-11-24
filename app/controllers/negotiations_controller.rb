@@ -4,7 +4,11 @@ class NegotiationsController < ApplicationController
   # GET /negotiations
   # GET /negotiations.json
   def index
-    @negotiations = Negotiation.all.includes(:project).ordered_by_updated_at
+    projects_collection     = apply_filters(Project.all)
+    negotiations_collection = apply_filters(Negotiation.all)
+
+    @negotiations   = negotiations_collection.ordered_by_updated_at
+    @projects_names = projects_collection.where(id: @negotiations.map(&:project_id)).pluck(:id, :name).to_h
 
     @versions = PaperTrail::Version.all.where(item_type: 'Negotiation')
   end
