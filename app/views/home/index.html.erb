@@ -2,6 +2,12 @@
 
 <h1>Dashboard</h1>
 
+<%= form_with url: home_path, method: 'get', local: true do %>
+  <%= label_tag :snapshot_at, 'Snapshot date:' %>
+  <%= date_field_tag :snapshot_at, @snapshot_at %>
+  <%= submit_tag 'Apply' %>
+<% end %>
+
 <table>
   <thead>
     <tr>
