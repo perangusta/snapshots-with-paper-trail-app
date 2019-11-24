@@ -5,10 +5,18 @@
 <table>
   <thead>
     <tr>
+      <th colspan="6"></th>
+      <th colspan="3">Negotiations</th>
+      <th colspan="6"></th>
+    </tr>
+    <tr>
       <th>ID</th>
       <th>State</th>
       <th>Name</th>
       <th>Description</th>
+      <th>Baseline</th>
+      <th>Savings</th>
+      <th>Nb of negotiations</th>
       <th>Baseline</th>
       <th>Savings</th>
       <th>Start on</th>
@@ -27,6 +35,9 @@
         <td><%= project.description %></td>
         <td><%= project.baseline %></td>
         <td><%= project.savings %></td>
+        <td><%= project.negotiations_count %></td>
+        <td><%= project.negotiations_baseline %></td>
+        <td><%= project.negotiations_savings %></td>
         <td><%= project.start_on %></td>
         <td><%= project.end_on %></td>
         <td><%= l(project.updated_at) %></td>

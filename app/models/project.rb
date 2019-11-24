@@ -16,6 +16,17 @@ class Project < ApplicationRecord
 
   scope :ordered_by_updated_at, -> { order(updated_at: :desc) }
 
+  scope :with_negotiations_summary, -> {
+    select_statement = <<~SQL.squish
+      projects.*, 
+      COUNT(negotiations.baseline) AS negotiations_count, 
+      SUM(negotiations.baseline) AS negotiations_baseline, 
+      SUM(negotiations.savings) AS negotiations_savings
+    SQL
+
+    left_outer_joins(:negotiations).select(select_statement).group('projects.id')
+  }
+
   def to_s
     name
   end
