@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_23_193853) do
+ActiveRecord::Schema.define(version: 2019_11_24_070217) do
 
   create_table "projects", force: :cascade do |t|
     t.integer "state"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2019_11_23_193853) do
     t.datetime "created_at"
     t.text "object_changes", limit: 1073741823
     t.string "item_name"
+    t.string "ip"
+    t.string "user_agent"
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
