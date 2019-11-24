@@ -4,7 +4,8 @@ class Project < ApplicationRecord
   has_many :negotiations, dependent: :destroy
 
   # Versioning
-  has_paper_trail meta: { item_name: :paper_trail_item_name }
+  include Versionable
+  configure_paper_trail
 
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 3 }
@@ -15,9 +16,5 @@ class Project < ApplicationRecord
 
   def to_s
     name
-  end
-
-  def paper_trail_item_name
-    to_s
   end
 end

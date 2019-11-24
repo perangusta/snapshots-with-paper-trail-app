@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
 
-    @versions = PaperTrail::Version.all
+    @versions = PaperTrail::Version.all.where(item_type: 'Project')
   end
 
   # GET /projects/1

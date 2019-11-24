@@ -33,3 +33,5 @@
 <br>
 
 <%= link_to 'New Negotiation', new_negotiation_path %>
+
+<%= render partial: 'shared/versioning', locals: { versions: @versions } %>

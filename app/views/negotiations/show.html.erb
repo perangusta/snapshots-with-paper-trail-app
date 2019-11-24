@@ -25,3 +25,5 @@
 
 <%= link_to 'Edit', edit_negotiation_path(@negotiation) %> |
 <%= link_to 'Back', negotiations_path %>
+
+<%= render partial: 'shared/versioning', locals: { versions: @negotiation.versions } %>

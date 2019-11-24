@@ -5,6 +5,8 @@ class NegotiationsController < ApplicationController
   # GET /negotiations.json
   def index
     @negotiations = Negotiation.all
+
+    @versions = PaperTrail::Version.all.where(item_type: 'Negotiation')
   end
 
   # GET /negotiations/1
