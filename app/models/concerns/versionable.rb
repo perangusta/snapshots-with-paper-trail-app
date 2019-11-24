@@ -14,13 +14,15 @@ module Versionable
         versions_select_statement = columns_hash.map do |column_name, column_settings|
           if defined_enums.key?(column_name.to_s)
             "CASE versions.object->>'#{column_name}' #{defined_enums[column_name.to_s].map { |k, v| "WHEN '#{k}' THEN #{v}::integer" }.join(' ')} ELSE (versions.object->>'#{column_name}')::integer END AS #{column_name}"
+          elsif column_settings.array
+            "(ARRAY(SELECT jsonb_array_elements_text((versions.object->'#{column_name}')::jsonb))::#{column_settings.sql_type}[]) AS #{column_name}"
           else
             "(versions.object->>'#{column_name}')::#{column_settings.sql_type} AS #{column_name}"
           end
         end.join(', ')
 
         original_select_statement = columns_hash.map do |column_name, column_settings|
-          "(#{table_name}.#{column_name})::#{column_settings.sql_type} AS #{column_name}"
+          "(#{table_name}.#{column_name})::#{column_settings.sql_type}#{'[]' if column_settings.array} AS #{column_name}"
         end.join(', ')
 
         versions_collection_statement = <<~SQL.squish

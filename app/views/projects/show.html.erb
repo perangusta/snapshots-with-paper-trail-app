@@ -33,6 +33,11 @@
   <%= @project.end_on %>
 </p>
 
+<p>
+  <strong>Tags:</strong>
+  <%= @project.tags.join(', ') if @project.tags.present? %>
+</p>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
 

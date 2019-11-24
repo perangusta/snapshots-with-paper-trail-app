@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+  TAGS = %w[blue green red orange white black].freeze
+
   enum state: STATES
 
   has_many :negotiations, dependent: :destroy
@@ -37,5 +39,9 @@ class Project < ApplicationRecord
 
   def to_s
     name
+  end
+
+  def tags=(values)
+    super(Array(values).reject!(&:blank?))
   end
 end

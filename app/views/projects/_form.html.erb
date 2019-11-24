@@ -46,6 +46,11 @@
     <%= form.date_field :end_on %>
   </div>
 
+  <div class="field">
+    <%= form.label :tags %>
+    <%= form.select :tags, options_for_select(Project::TAGS, form.object.tags), {}, multiple: true %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
