@@ -22,7 +22,7 @@
             <% end %>
           </td>
           <td>
-            <%= version.actor %><br />
+            <%= version.actor || version.whodunnit.presence || 'Unknown' %><br />
             <small><%= version.ip %> / <%= truncate(version.user_agent, length: 40) %></small>
           </td>
           <td><%= l(version.created_at) %></td>
