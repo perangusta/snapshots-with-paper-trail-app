@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_24_072858) do
+ActiveRecord::Schema.define(version: 2019_11_24_101942) do
 
   create_table "negotiations", force: :cascade do |t|
     t.integer "state"
@@ -52,12 +52,12 @@ ActiveRecord::Schema.define(version: 2019_11_24_072858) do
     t.integer "item_id", null: false
     t.string "event", null: false
     t.string "whodunnit"
-    t.text "object", limit: 1073741823
     t.datetime "created_at"
-    t.text "object_changes", limit: 1073741823
     t.string "item_name"
     t.string "ip"
     t.string "user_agent"
+    t.jsonb "object"
+    t.jsonb "object_changes"
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
