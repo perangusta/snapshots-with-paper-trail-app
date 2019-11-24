@@ -1,11 +1,7 @@
 class Project < ApplicationRecord
-  STATES = {
-    draft:     1,
-    completed: 2,
-    deleted:   3
-  }.freeze
-
   enum state: STATES
+
+  has_many :negotiations, dependent: :destroy
 
   # Versioning
   has_paper_trail meta: { item_name: :paper_trail_item_name }

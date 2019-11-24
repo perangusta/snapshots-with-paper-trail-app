@@ -1,0 +1,27 @@
+<p>
+  <strong>State:</strong>
+  <%= @negotiation.state %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @negotiation.name %>
+</p>
+
+<p>
+  <strong>Baseline:</strong>
+  <%= @negotiation.baseline %>
+</p>
+
+<p>
+  <strong>Savings:</strong>
+  <%= @negotiation.savings %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @negotiation.project_id %>
+</p>
+
+<%= link_to 'Edit', edit_negotiation_path(@negotiation) %> |
+<%= link_to 'Back', negotiations_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  state: 1
+  name: MyString
+  baseline: 100
+  savings: 10
+  project: one
+
+two:
+  state: 1
+  name: MyString
+  baseline: 100
+  savings: 10
+  project: two

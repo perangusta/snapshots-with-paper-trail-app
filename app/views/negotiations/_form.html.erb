@@ -1,0 +1,42 @@
+<%= form_with(model: negotiation, local: true) do |form| %>
+  <% if negotiation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(negotiation.errors.count, "error") %> prohibited this negotiation from being saved:</h2>
+
+      <ul>
+        <% negotiation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.select :state, Negotiation::STATES.keys %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :baseline %>
+    <%= form.text_field :baseline %>
+  </div>
+
+  <div class="field">
+    <%= form.label :savings %>
+    <%= form.text_field :savings %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_id %>
+    <%= form.collection_select :project_id, Project.all, :id, :name, prompt: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
