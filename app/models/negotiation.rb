@@ -7,6 +7,9 @@ class Negotiation < ApplicationRecord
   include Versionable
   configure_paper_trail
 
+  # Summary method
+  include Summarizable
+
   validates :name, presence: true
   validates :baseline, presence: true, numericality: true
   validates :savings, presence: true, numericality: true

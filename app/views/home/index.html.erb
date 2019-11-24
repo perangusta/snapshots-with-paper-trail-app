@@ -2,4 +2,46 @@
 
 <h1>Dashboard</h1>
 
+<table>
+  <thead>
+    <tr>
+      <th>Object type</th>
+      <th>State</th>
+      <th>Nb of objects</th>
+      <th>Baseline</th>
+      <th>Savings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Projects</td>
+      <td>Completed</td>
+      <td><%= @projects_summary_completed.records_count %></td>
+      <td><%= @projects_summary_completed.baseline_sum %></td>
+      <td><%= @projects_summary_completed.savings_sum %></td>
+    </tr>
+    <tr>
+      <td>Negotiations</td>
+      <td>Completed</td>
+      <td><%= @negotiations_summary_completed.records_count %></td>
+      <td><%= @negotiations_summary_completed.baseline_sum %></td>
+      <td><%= @negotiations_summary_completed.savings_sum %></td>
+    </tr>
+    <tr>
+      <td>Projects</td>
+      <td>Draft</td>
+      <td><%= @projects_summary_draft.records_count %></td>
+      <td><%= @projects_summary_draft.baseline_sum %></td>
+      <td><%= @projects_summary_draft.savings_sum %></td>
+    </tr>
+    <tr>
+      <td>Negotiations</td>
+      <td>Draft</td>
+      <td><%= @negotiations_summary_draft.records_count %></td>
+      <td><%= @negotiations_summary_draft.baseline_sum %></td>
+      <td><%= @negotiations_summary_draft.savings_sum %></td>
+    </tr>
+  </tbody>
+</table>
+
 <%= render partial: 'shared/versioning', locals: { versions: @versions } %>

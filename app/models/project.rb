@@ -7,6 +7,9 @@ class Project < ApplicationRecord
   include Versionable
   configure_paper_trail
 
+  # Summary method
+  include Summarizable
+
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 3 }
   validates :baseline, presence: true, numericality: true
