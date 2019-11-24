@@ -9,7 +9,7 @@ module Summarizable
           COALESCE(SUM(#{table_name}.savings),  0.0) AS savings_sum
         SQL
 
-        public_send(scope).select(select_statement).first
+        public_send(scope).select(select_statement).to_a.first
       end
     end
   end
