@@ -2,6 +2,7 @@ require "application_system_test_case"
 
 class ProjectsTest < ApplicationSystemTestCase
   setup do
+    sign_in users(:one)
     @project = projects(:one)
   end
 
@@ -20,7 +21,7 @@ class ProjectsTest < ApplicationSystemTestCase
     fill_in "Name", with: @project.name
     fill_in "Savings", with: @project.savings
     fill_in "Start on", with: @project.start_on
-    fill_in "State", with: @project.state
+    select @project.state, from: "State"
     click_on "Create Project"
 
     assert_text "Project was successfully created"
@@ -37,7 +38,7 @@ class ProjectsTest < ApplicationSystemTestCase
     fill_in "Name", with: @project.name
     fill_in "Savings", with: @project.savings
     fill_in "Start on", with: @project.start_on
-    fill_in "State", with: @project.state
+    select @project.state, from: "State"
     click_on "Update Project"
 
     assert_text "Project was successfully updated"

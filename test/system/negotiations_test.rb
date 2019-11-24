@@ -2,6 +2,7 @@ require "application_system_test_case"
 
 class NegotiationsTest < ApplicationSystemTestCase
   setup do
+    sign_in users(:one)
     @negotiation = negotiations(:one)
   end
 
@@ -16,9 +17,9 @@ class NegotiationsTest < ApplicationSystemTestCase
 
     fill_in "Baseline", with: @negotiation.baseline
     fill_in "Name", with: @negotiation.name
-    fill_in "Project", with: @negotiation.project_id
+    select @negotiation.project.name, from: "Project"
     fill_in "Savings", with: @negotiation.savings
-    fill_in "State", with: @negotiation.state
+    select @negotiation.state, from: "State"
     click_on "Create Negotiation"
 
     assert_text "Negotiation was successfully created"
@@ -31,9 +32,9 @@ class NegotiationsTest < ApplicationSystemTestCase
 
     fill_in "Baseline", with: @negotiation.baseline
     fill_in "Name", with: @negotiation.name
-    fill_in "Project", with: @negotiation.project_id
+    select @negotiation.project.name, from: "Project"
     fill_in "Savings", with: @negotiation.savings
-    fill_in "State", with: @negotiation.state
+    select @negotiation.state, from: "State"
     click_on "Update Negotiation"
 
     assert_text "Negotiation was successfully updated"

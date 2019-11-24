@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class NegotiationsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in users(:one)
     @negotiation = negotiations(:one)
   end
 

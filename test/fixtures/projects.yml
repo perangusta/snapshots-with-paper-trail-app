@@ -2,8 +2,8 @@
 
 one:
   state: 1
-  name: MyString
-  description: MyText
+  name: MyString 1
+  description: MyText 1
   baseline: 100
   savings: 10
   start_on: 2019-11-23
@@ -11,8 +11,8 @@ one:
 
 two:
   state: 1
-  name: MyString
-  description: MyText
+  name: MyString 2
+  description: MyText 2
   baseline: 100
   savings: 10
   start_on: 2019-11-23
